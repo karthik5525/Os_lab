@@ -35,3 +35,26 @@ void main()
 
 
 ****Semaphore***
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<semaphore.h>
+#include<pthread.h>
+sem_t mutex;
+void* thread()
+{sem_wait(&mutex);
+printf("Entered");
+sleep(2);
+printf("Exiting");
+sem_post(&mutex);
+}
+void main()
+{sem_init(&mutex,0,1);
+pthread_t t1,t2;
+pthread_create(&t1,NULL,thread,NULL);
+pthread_create(&t2,NULL,thread,NULL);
+pthread_join(t1,NULL);
+pthread_join(t2,NULL);
+}
