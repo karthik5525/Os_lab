@@ -4,11 +4,17 @@ Operating systems programs
 *****i/o_system_call*****
 
 #include<stdio.h>
+
 #include<stdlib.h>
+
 #include<unistd.h>
+
 #include<sys/types.h>
+
 #include<fcntl.h>
+
 void main()
+
 {int fd;
 	char message[]="Hai Hello";
 	char buffer[100];
